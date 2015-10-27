@@ -905,6 +905,14 @@
     </profile>
     <profile>
       <id>distro</id>
+      <activation>
+        <property>
+          <name>nodocs</name>
+        </property>
+      </activation>
+      <properties>
+        <skipTests>true</skipTests>
+      </properties>
       <modules>
         <module>modules/activiti-bpmn-model</module>
         <module>modules/activiti-process-validation</module>
@@ -922,7 +930,6 @@
         <module>modules/activiti-rest</module>
         <module>modules/activiti-webapp-rest2</module>
         <module>modules/activiti-webapp-explorer2</module>
-        <module>modules/activiti-cxf</module>
         <module>modules/activiti-osgi</module>
         <module>modules/activiti-camel</module>
         <module>modules/activiti-mule</module>
@@ -931,7 +938,7 @@
         <module>modules/activiti-crystalball</module>
         <module>modules/activiti-jmx</module>
       </modules>
-	<build>
+	<!--build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -946,7 +953,7 @@
 				</executions>
 			</plugin>
 		</plugins>
-	</build>
+	</build-->
     </profile>
     <profile>
       <id>database</id>

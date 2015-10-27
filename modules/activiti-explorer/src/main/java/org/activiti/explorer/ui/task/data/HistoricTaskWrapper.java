@@ -182,4 +182,16 @@ public class HistoricTaskWrapper implements Task {
     return null;
   }
 
+@Override
+public void setLocalizedName(String name) {
+    // TODO Auto-generated method stub
+    
+}
+
+@Override
+public void setLocalizedDescription(String description) {
+    // TODO Auto-generated method stub
+    
+}
+
 }
