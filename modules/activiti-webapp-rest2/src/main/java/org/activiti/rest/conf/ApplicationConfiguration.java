@@ -9,6 +9,7 @@ import org.springframework.context.annotation.PropertySources;
 @Configuration
 @PropertySources({
   @PropertySource(value = "classpath:db.properties", ignoreResourceNotFound = true),
+  @PropertySource(value = "classpath:security.properties", ignoreResourceNotFound = true),
   @PropertySource(value = "classpath:engine.properties", ignoreResourceNotFound = true)
 })
 @ComponentScan(basePackages = {"org.activiti.rest.conf"})

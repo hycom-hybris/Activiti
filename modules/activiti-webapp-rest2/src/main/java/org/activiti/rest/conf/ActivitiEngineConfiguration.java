@@ -2,6 +2,7 @@ package org.activiti.rest.conf;
 
 import java.sql.Driver;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -16,6 +17,8 @@ import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.form.AbstractFormType;
 import org.activiti.engine.impl.cfg.ProcessEngineConfigurationImpl;
+import org.activiti.rest.conf.factory.HybrisGroupManagerFactory;
+import org.activiti.rest.conf.factory.HybrisUserManagerFactory;
 import org.activiti.rest.form.MonthFormType;
 import org.activiti.rest.form.ProcessDefinitionFormType;
 import org.activiti.rest.form.UserFormType;
@@ -104,7 +107,7 @@ public class ActivitiEngineConfiguration {
   	formTypes.add(new ProcessDefinitionFormType());
   	formTypes.add(new MonthFormType());
   	processEngineConfiguration.setCustomFormTypes(formTypes);
-  	
+  	processEngineConfiguration.addConfigurator(new RESTConfigurator());
   	return processEngineConfiguration;
   }
   

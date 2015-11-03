@@ -1,7 +1,9 @@
 package org.activiti.rest.conf;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
@@ -18,15 +20,19 @@ import org.slf4j.LoggerFactory;
 @Configuration
 @EnableResourceServer
 public class ResourceServer extends ResourceServerConfigurerAdapter {
-
+    
+    @Autowired
+    protected Environment environment;
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(ResourceServer.class);
 
     @Bean
     public JwtAccessTokenConverter tokenEnhancer() {
+        
+        String singingKey = environment.getProperty("security.signing.key", "DuMmYsIgNiNgKeY");
 
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        converter.setSigningKey("rAnDoMhYbRiSsIgNiNgKeY");
+        converter.setSigningKey(singingKey);
 //        try {
 //            converter.afterPropertiesSet();
 //        } catch (Exception e) {
